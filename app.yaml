@@ -34,3 +34,6 @@ libraries:
 
 - name: PIL
   version: "latest"
+
+env_variables:
+  IS_APP_ENGINE: 'true'
