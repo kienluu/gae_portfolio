@@ -1,0 +1,6 @@
+boto
+grappelli
+south
+werkzeug
+werkzeug_app_engine
+werkzeug_appengine_debugger
