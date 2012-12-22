@@ -15,6 +15,19 @@ handlers:
 - url: .*
   script: main.app
 
+skip_files:
+# Configuration files are sent to the server seperately.
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?index\.yaml
+- ^(.*/)?index\.yml
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^datastore/.*
+
 libraries:
 - name: django
   version: "1.4"
