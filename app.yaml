@@ -26,7 +26,7 @@ skip_files:
 - ^(.*/)?.*\.py[co]
 - ^(.*/)?.*/RCS/.*
 - ^(.*/)?\..*
-- ^datastore/.*
+- ^\.datastore/.*
 
 libraries:
 - name: django
