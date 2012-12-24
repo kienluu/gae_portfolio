@@ -30,6 +30,6 @@ django.dispatch.Signal.connect(
 
 
 # WSGI app
-import django.core.handlers.wsgi
-app = django.core.handlers.wsgi.WSGIHandler()
-app = DebuggedApplication(app, evalex=True)
+from django.core.handlers.wsgi import WSGIHandler
+app = WSGIHandler()
+#app = DebuggedApplication(app, evalex=True)
