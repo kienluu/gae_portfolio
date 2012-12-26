@@ -2,5 +2,5 @@ boto
 grappelli
 south
 werkzeug
-werkzeug_app_engine
-werkzeug_appengine_debugger
+werkzeug_debugger_appengine
+tastypie
