@@ -23,7 +23,12 @@ fi
 
 for lib_name in $(cat vlib_requirements.txt); do
     if [ ! -h "$vlib/$lib_name" ]; then
-        echo "Creating new symbolic link @ "`./findpath.py $lib_name`" ..."
-        ln -s "`./findpath.py $lib_name`" "$vlib/$lib_name"
+        export module_path=`./findpath.py $lib_name`
+        echo "Creating new symbolic link @ "$module_path" ..."
+        if [ -d $module_path ]; then
+            ln -s "$module_path" "$vlib/$lib_name"
+        else
+            ln -s "$module_path" "$vlib/$lib_name.py"
+        fi
     fi
 done
