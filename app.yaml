@@ -7,13 +7,20 @@ threadsafe: yes
 handlers:
 - url: /favicon\.ico
   static_files: favicon.ico
-  upload: favicon\.ico
+  upload: portfolio_project/webapp/static/favicon\.ico
 
 - url: /static
   static_dir: portfolio_project/static/
 
-- url: .*
+- url: /(admin|api).*
   script: main.app
+
+- url: /
+  static_files: portfolio_project/webapp/index.html
+  upload: portfolio_project/webapp/index.html
+
+- url: /
+  static_dir: portfolio_project/webapp/
 
 skip_files:
 # Configuration files are sent to the server seperately.
@@ -26,14 +33,13 @@ skip_files:
 - ^(.*/)?.*\.py[co]
 - ^(.*/)?.*/RCS/.*
 - ^(.*/)?\..*
-- ^\.datastore/.*
+- ^portfolio_project/sass/.*
+- ^portfolio_project/port/.*
 
 libraries:
 - name: django
   version: "1.4"
 
-- name: PIL
-  version: "latest"
 
 env_variables:
   IS_APP_ENGINE: 'true'
