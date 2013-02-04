@@ -6,3 +6,4 @@ werkzeug_debugger_appengine
 tastypie
 dateutil
 mimeparse
+django_extensions

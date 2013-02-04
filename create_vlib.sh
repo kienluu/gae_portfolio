@@ -24,11 +24,17 @@ fi
 for lib_name in $(cat vlib_requirements.txt); do
     if [ ! -h "$vlib/$lib_name" ]; then
         export module_path=`./findpath.py $lib_name`
-        echo "Creating new symbolic link @ "$module_path" ..."
         if [ -d $module_path ]; then
+            echo "Creating new symbolic link @ "$module_path" ..."
             ln -s "$module_path" "$vlib/$lib_name"
         else
-            ln -s "$module_path" "$vlib/$lib_name.py"
+            # FIXME: should be using base name of module I think?
+            # FIXME: extra logic below is a quickfix.
+            # Check the file does not exist
+            if [ ! -h "$vlib/$lib_name.py" ]; then
+                echo "Creating new symbolic link @ "$vlib/$lib_name.py" ..."
+                ln -s "$module_path" "$vlib/$lib_name.py"
+            fi
         fi
     fi
 done
