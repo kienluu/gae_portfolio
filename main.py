@@ -3,7 +3,11 @@
 import os
 import sys
 import logging
-sys.path.extend(['portfolio_project', 'lib', 'vlib'])
+# main.py appears to get called multiple times and so if we just extend sys.path
+# like below many copies of the paths will be continuously appended to sys.path.
+#sys.path.extend(['portfolio_project', 'lib', 'vlib'])
+if 'portfolio_project' not in sys.path:
+    sys.path.extend(['portfolio_project', 'lib', 'vlib'])
 from werkzeug.debug import DebuggedApplication
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'portfolio.settings'
