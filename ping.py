@@ -12,6 +12,7 @@ The 3 things that needs to be kept warm are
 """
 
 from urllib2 import urlopen
+import unittest
 
 # Warm up normal Appengine static file server (is this necessary?)
 urlopen('http://kien-on.appspot.com')
