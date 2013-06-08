@@ -8,7 +8,8 @@ import logging
 #sys.path.extend(['portfolio_project', 'lib', 'vlib'])
 if 'portfolio_project' not in sys.path:
     sys.path.extend(['portfolio_project', 'lib', 'vlib'])
-from werkzeug.debug import DebuggedApplication
+# below crashed server
+#from werkzeug.debug import DebuggedApplication
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'portfolio.settings'
 
